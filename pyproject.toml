@@ -1,0 +1,28 @@
+[project]
+name = "dawn"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "BiltuDas1",email = "billionto@gmail.com"}
+]
+license = {text = "The Unlicense"}
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "playwright (>=1.57.0,<2.0.0)",
+    "pydantic (>=2.12.5,<3.0.0)",
+    "flashtext (>=2.7,<3.0)",
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "python-dotenv (>=1.2.1,<2.0.0)",
+    "ruff (>=0.14.14,<0.15.0)"
+]
+
+[tool.poetry]
+package-mode = false

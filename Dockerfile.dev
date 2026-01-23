@@ -1,0 +1,6 @@
+FROM mcr.microsoft.com/playwright/python:v1.57.0-noble
+
+# Install Poetry
+RUN pip install poetry
+
+CMD [ "/bin/bash" ]

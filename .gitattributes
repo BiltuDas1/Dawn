@@ -1,0 +1,6 @@
+* text=auto eol=lf
+*.py text eol=lf
+
+# Force Dockerfiles to use LF and ensure they are detected as Dockerfiles
+Dockerfile text eol=lf linguist-language=Dockerfile
+Dockerfile.dev text eol=lf linguist-language=Dockerfile
