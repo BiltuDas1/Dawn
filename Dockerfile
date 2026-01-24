@@ -24,5 +24,8 @@ COPY . .
 USER pwuser
 
 ENV PRODUCTION=true
+LABEL org.opencontainers.image.authors="Biltu Das <billionto@gmail.com>"
+LABEL org.opencontainers.image.licenses="The Unlicense"
+LABEL org.opencontainers.image.source=https://github.com/BiltuDas1/Dawn
 
 CMD ["python", "main.py"]
