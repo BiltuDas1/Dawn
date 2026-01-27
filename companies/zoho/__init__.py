@@ -16,11 +16,10 @@ def scrap_zoho(browser: Browser) -> list[JobData]:
   page.goto(ZOHO_CAREERS)
 
   job_list = page.locator(".jobcard-container").first
-  settings.KEYWORDS
 
   for item in job_list.locator("h3").all():
     url = item.locator("a").get_attribute("href")
-    title = item.inner_text()
+    title = item.locator("a").inner_text()
 
     if url is None:
       continue
