@@ -1,0 +1,29 @@
+name: Run Docker Container
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  run-docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create Env File
+        run: |
+          echo "KEYWORDS=${{ vars.KEYWORDS }}" >> .env
+          echo "CLOUDFLARE_API_KEY=${{ secrets.CLOUDFLARE_API_KEY }}" >> .env
+          echo "CLOUDFLARE_ACCOUNT_ID=${{ secrets.CLOUDFLARE_ACCOUNT_ID }}" >> .env
+          echo "CLOUDFLARE_DATABASE_ID=${{ secrets.CLOUDFLARE_DATABASE_ID }}" >> .env
+          echo "CLOUDFLARE_KV_NAMESPACE=${{ secrets.CLOUDFLARE_KV_NAMESPACE }}" >> .env
+          echo "PRODUCTION=true" >> .env
+
+      - name: Pull and Run Docker Image
+        run: |
+          docker pull ghcr.io/biltudas1/dawn:latest
+          docker run --rm --env-file .env ghcr.io/biltudas1/dawn:latest
