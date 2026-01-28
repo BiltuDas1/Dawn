@@ -1,3 +1,5 @@
-type Bindings = {
+import type { D1Database } from '@cloudflare/workers-types';
+
+export type Bindings = {
   SCRAPPER_DB: D1Database;
 }
