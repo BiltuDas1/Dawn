@@ -21,6 +21,10 @@ COPY --from=builder /app/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
+
+# Creating Cuckoo filter temporary file
+RUN touch cuckoo.bin && chown pwuser:pwuser cuckoo.bin && chmod 644 cuckoo.bin
+
 USER pwuser
 
 ENV PRODUCTION=true

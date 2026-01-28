@@ -21,7 +21,6 @@ jobs:
           echo "CLOUDFLARE_ACCOUNT_ID=${{ secrets.CLOUDFLARE_ACCOUNT_ID }}" >> .env
           echo "CLOUDFLARE_DATABASE_ID=${{ secrets.CLOUDFLARE_DATABASE_ID }}" >> .env
           echo "CLOUDFLARE_KV_NAMESPACE=${{ secrets.CLOUDFLARE_KV_NAMESPACE }}" >> .env
-          echo "PRODUCTION=true" >> .env
 
       - name: Pull and Run Docker Image
         run: |

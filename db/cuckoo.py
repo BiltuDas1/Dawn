@@ -11,9 +11,9 @@ class Cuckoo:
   KV_URI = f"https://api.cloudflare.com/client/v4/accounts/{settings.CLOUDFLARE_ACCOUNT_ID}/storage/kv/namespaces/{settings.CLOUDFLARE_KV_NAMESPACE}/bulk"
   AUTH_HEADERS = {"Authorization": f"Bearer {settings.CLOUDFLARE_API_KEY}"}
 
-  def __init__(self, obj: CuckooFilter, filename="job_filter.bin"):
+  def __init__(self, obj: CuckooFilter, filename="cuckoo.bin"):
     self._save_path = filename
-    if os.path.exists(self._save_path):
+    if os.path.exists(self._save_path) and os.path.getsize(self._save_path) > 0:
       logger.LOGGER.info("Loaded CuckooFilter from Saved Path")
       self._filter: CuckooFilter = CuckooFilter(filepath=self._save_path)
     else:
