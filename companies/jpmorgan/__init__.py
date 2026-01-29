@@ -10,7 +10,7 @@ def match(sentence: str) -> bool:
   return len(settings.KEYWORDS.extract_keywords(sentence.lower())) != 0
 
 
-def scrap_jpmorgan(browser: Browser) -> list[JobData]:
+def scrap_jpmorgan(browser: Browser, company="JPMorgan") -> list[JobData]:
   result = []
 
   page = browser.new_page()
@@ -31,6 +31,6 @@ def scrap_jpmorgan(browser: Browser) -> list[JobData]:
     )
 
     if match(title):
-      result.append(JobData(title=title, url=clean_url, company="JPMorgan"))
+      result.append(JobData(title=title, url=clean_url, company=company))
 
   return result
