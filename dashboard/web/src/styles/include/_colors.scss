@@ -1,3 +1,24 @@
-$title-description-color: #8c8e95;
-$body-margin: #eeeeee;
-$list-title: #f6f8fa;
+@use 'sass:color';
+
+// Brand Colors
+$color-primary: #007AFF;
+$color-primary-hover: color.scale($color-primary, $lightness: 20%);
+
+// Neutrals & Backgrounds
+$bg-main: #0B0C0E;
+$bg-surface: #141518;
+$border-subtle: #24262B;
+
+// Typography
+$text-high-emphasis: #FFFFFF;
+$text-medium-emphasis: #94969C;
+$text-disabled: #475467;
+
+// Semantic Status
+$status-overdue: #FF4D4D;
+$status-paid: #2ECC71;
+$status-draft: #94969C;
+
+// Table & Interaction
+$row-hover: #1A1B1E;
+$row-selected: rgba($color-primary, 0.15);

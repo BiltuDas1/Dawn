@@ -1,9 +1,10 @@
 @use "../include/colors";
+@use "../include/fonts";
 
 
 nav {
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid colors.$body-margin;
+  border-bottom: 1px solid colors.$text-disabled;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -15,10 +16,13 @@ nav {
       margin: 0;
 
       &.heading {
-        font-weight: bold;
+        font-weight: 500;
+        font-size: fonts.$font-size-xl;
+        color: colors.$text-high-emphasis;
       }
       &.description {
-        color: colors.$title-description-color;
+        color: colors.$text-medium-emphasis;
+        font-size: fonts.$font-size-lg;
       }
     }
   }
@@ -27,17 +31,23 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 1px solid colors.$title-description-color;
+    border: 0.1px solid colors.$text-disabled;
     border-radius: 0.3rem;
+    box-shadow: 0.5px 1px 1px colors.$text-disabled;
 
     svg {
       height: 2rem;
       width: 2rem;
       margin: 0 0.3rem;
+      fill: colors.$text-high-emphasis;
+    }
+    
+    &:hover {
+      cursor: pointer;
+    }
 
-      &:hover {
-        cursor: pointer;
-      }
+    &:active {
+      box-shadow: -0.5px -0.5px 0.5px colors.$text-disabled;
     }
   }
 }

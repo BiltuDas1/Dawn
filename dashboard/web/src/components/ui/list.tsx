@@ -57,12 +57,16 @@ function List() {
 
   return (
     <table>
-      <tr className="title">
-        <th>Job Role</th>
-        <th>Company</th>
-        <th>Added At</th>
-      </tr>
-      {result && generateTable()}
+      <thead>
+        <tr>
+          <th>Job Role</th>
+          <th>Company</th>
+          <th>Added At</th>
+        </tr>
+      </thead>
+      <tbody>
+        {result && generateTable()}
+      </tbody>
     </table>
   )
 }
