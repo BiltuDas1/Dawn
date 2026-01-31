@@ -21,7 +21,11 @@ def oracle_cloud(browser: Browser, company: str, career_link: str) -> list[JobDa
     logger.LOGGER.info(f"[{company}] Service Unavailable")
     return result
 
-  page.wait_for_selector("#panel-list", state="visible")
+  try:
+    page.wait_for_selector("#panel-list", state="visible")
+  except Exception:
+    logger.LOGGER.info(f"[{company}] Service Unavailable")
+    return result
 
   jobs = page.locator("#panel-list")
   for job in jobs.locator('li[data-qa="searchResultItem"]').all():
