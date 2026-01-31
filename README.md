@@ -27,3 +27,10 @@ A Job Scrapper that scraps job list from specific career portals and store it in
   ```bash
   docker buildx build -t <image_name>:<tag_name> .
   ```
+
+## ToDo
+
+- [ ] Add functionality of the Search Bar
+- [ ] Add functionality of the Refresh Button
+- [ ] Add functionality of the TOTP QR Code Button
+- [ ] Add TOTP Authentication System
