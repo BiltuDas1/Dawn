@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useJobsList } from "../../hooks/useJobsList";
 import "../../styles/components/list.scss"
+import { getTimeZone, toApproxUnit } from "../../utils/time";
 
 
 function List() {
@@ -12,19 +13,6 @@ function List() {
     }, []
   )
 
-  function getTimeZone(date: Date) {
-    const offset = date.getTimezoneOffset();
-    const hour = Math.trunc(-offset / 60);
-    const minutes = -offset % 60;
-    if (offset < 0) {
-      return `+${hour}:${minutes}`;
-    }
-    if (offset > 0) {
-      return `-${hour}:${minutes}`;
-    }
-    return "";
-  }
-
   function toLocalDateTime(date: string) {
     const dateTime = new Date(date.replace(" ", "T") + "Z");
     const options: Intl.DateTimeFormatOptions = {
@@ -35,9 +23,9 @@ function List() {
     const dateTimeStr = `${dateTime.toLocaleDateString()} ${dateTime.toLocaleTimeString(undefined, options).toLocaleUpperCase()} (GMT${getTimeZone(dateTime)})`;
 
     return (
-      <>
-        {dateTimeStr}
-      </>
+      <td title={dateTimeStr}>
+        {toApproxUnit(dateTime)} Ago
+      </td>
     )
   }
 
@@ -50,7 +38,7 @@ function List() {
       <tr>
         <td><a href={row.url} target="_blank">{row.job_role}</a></td>
         <td>{row.company}</td>
-        <td>{toLocalDateTime(row.added_at)}</td>
+        {toLocalDateTime(row.added_at)}
       </tr>
     ))
   }
