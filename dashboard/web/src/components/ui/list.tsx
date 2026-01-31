@@ -61,7 +61,7 @@ function List() {
         <tr>
           <th>Job Role</th>
           <th>Company</th>
-          <th>Added At</th>
+          <th>Added</th>
         </tr>
       </thead>
       <tbody>
