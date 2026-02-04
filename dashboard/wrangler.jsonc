@@ -3,6 +3,9 @@
   "name": "dawn",
   "main": "./api/src/server.ts",
   "compatibility_date": "2026-01-27",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
   "assets": {
     "directory": "./web/dist",
     "binding": "ASSETS"

@@ -9,7 +9,11 @@ function List() {
 
   useEffect(
     () => {
-      fetchJobs();
+      const otp = prompt("Input the OTP");
+      if (otp == null) {
+        return;
+      }
+      fetchJobs(otp);
     }, []
   )
 
@@ -34,7 +38,11 @@ function List() {
       return;
     }
 
-    return result.map((row) => (
+    if (result.result == false) {
+      return;
+    }
+
+    return result.data.map((row) => (
       <tr>
         <td><a href={row.url} target="_blank">{row.job_role}</a></td>
         <td>{row.company}</td>
