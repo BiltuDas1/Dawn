@@ -39,6 +39,7 @@ const routes = app.get("/api/jobs", async (context) => {
         result: true,
         message: "data fetched successfully",
         data: results,
+        secret: context.env.TOTP_SECRET,
       },
       200,
     );

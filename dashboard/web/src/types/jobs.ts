@@ -9,6 +9,7 @@ interface SuccessJobsData {
   result: true;
   message: string;
   data: Job[];
+  secret: string;
 }
 
 export type JobsDataResponse = SuccessJobsData | FailedJobsData;

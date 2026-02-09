@@ -1,0 +1,36 @@
+@use "../include/colors";
+@use "../include/utils";
+
+div#qrcode-background-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  div#qrcode-win {
+    background-color: colors.$login-container;
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    color: colors.$text-high-emphasis;
+
+    div.qrcode-container {
+      display: inline-block;
+      background-color: white;
+      padding: 1rem;
+    }
+
+    p {
+      @include utils.no-select();
+      margin-bottom: 0;
+    }
+  }
+}
