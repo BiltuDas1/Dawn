@@ -1,19 +1,8 @@
-import { useEffect } from "react";
-import { useJobsList } from "../../hooks/useJobsList";
 import "../../styles/components/list.scss";
 import { getTimeZone, toApproxUnit } from "../../utils/time";
+import type { JobsDataResponse } from "../../types/jobs";
 
-function List() {
-  const { fetchJobs, result } = useJobsList();
-
-  useEffect(() => {
-    const otp = prompt("Input the OTP");
-    if (otp == null) {
-      return;
-    }
-    fetchJobs(otp);
-  }, []);
-
+function List({ data }: { data: JobsDataResponse }) {
   function toLocalDateTime(date: string) {
     const dateTime = new Date(date.replace(" ", "T") + "Z");
     const options: Intl.DateTimeFormatOptions = {
@@ -27,15 +16,15 @@ function List() {
   }
 
   const generateTable = () => {
-    if (result === null) {
+    if (data === null) {
       return;
     }
 
-    if (result.result == false) {
+    if (data.result == false) {
       return;
     }
 
-    return result.data.map((row) => (
+    return data.data.map((row) => (
       <tr>
         <td>
           <a href={row.url} target="_blank">
@@ -57,7 +46,7 @@ function List() {
           <th>Added</th>
         </tr>
       </thead>
-      <tbody>{result && generateTable()}</tbody>
+      <tbody>{data && generateTable()}</tbody>
     </table>
   );
 }

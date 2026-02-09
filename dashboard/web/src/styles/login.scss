@@ -1,0 +1,69 @@
+@use "./include/colors";
+
+div#login {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 95vh;
+
+  div#login-container {
+    background-color: colors.$login-container;
+    color: colors.$text-high-emphasis;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    width: 25rem;
+
+    h2 {
+      margin: 0;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: inherit;
+
+      input {
+        opacity: 0;
+      }
+
+      div#box-inputs {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 2rem;
+
+        div.box {
+          height: 3rem;
+          width: 3rem;
+          border: 1px solid colors.$text-medium-emphasis;
+          border-radius: 0.5rem;
+          cursor: text;
+          font-size: 1.5rem;
+          text-align: center;
+          padding-top: 0.4rem;
+
+          &.selected {
+            border: 2px solid colors.$status-paid;
+          }
+        }
+      }
+
+      button#submitbtn {
+        margin-top: 2rem;
+        height: 2.5rem;
+        border-radius: 0.5rem;
+        background-color: colors.$color-primary;
+        color: colors.$text-high-emphasis;
+        border: 0;
+        display: block;
+        width: 100%;
+
+        svg {
+          height: 1.5rem;
+          width: 1.5rem;
+        }
+      }
+    }
+  }
+}
