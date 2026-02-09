@@ -4,12 +4,14 @@
   box-sizing: border-box;
 }
 
-
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
   letter-spacing: -0.011em; /* This gives it that tight, professional look */
   background-color: colors.$bg-main;
   margin: 0;
   padding: 1rem;
 }
-

@@ -1,36 +1,29 @@
 import { useEffect } from "react";
 import { useJobsList } from "../../hooks/useJobsList";
-import "../../styles/components/list.scss"
+import "../../styles/components/list.scss";
 import { getTimeZone, toApproxUnit } from "../../utils/time";
-
 
 function List() {
   const { fetchJobs, result } = useJobsList();
 
-  useEffect(
-    () => {
-      const otp = prompt("Input the OTP");
-      if (otp == null) {
-        return;
-      }
-      fetchJobs(otp);
-    }, []
-  )
+  useEffect(() => {
+    const otp = prompt("Input the OTP");
+    if (otp == null) {
+      return;
+    }
+    fetchJobs(otp);
+  }, []);
 
   function toLocalDateTime(date: string) {
     const dateTime = new Date(date.replace(" ", "T") + "Z");
     const options: Intl.DateTimeFormatOptions = {
-      hour: 'numeric',
-      minute: '2-digit',
-      hour12: true
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
     };
     const dateTimeStr = `${dateTime.toLocaleDateString()} ${dateTime.toLocaleTimeString(undefined, options).toLocaleUpperCase()} (GMT${getTimeZone(dateTime)})`;
 
-    return (
-      <td title={dateTimeStr}>
-        {toApproxUnit(dateTime)} Ago
-      </td>
-    )
+    return <td title={dateTimeStr}>{toApproxUnit(dateTime)} Ago</td>;
   }
 
   const generateTable = () => {
@@ -44,12 +37,16 @@ function List() {
 
     return result.data.map((row) => (
       <tr>
-        <td><a href={row.url} target="_blank">{row.job_role}</a></td>
+        <td>
+          <a href={row.url} target="_blank">
+            {row.job_role}
+          </a>
+        </td>
         <td>{row.company}</td>
         {toLocalDateTime(row.added_at)}
       </tr>
-    ))
-  }
+    ));
+  };
 
   return (
     <table>
@@ -60,11 +57,9 @@ function List() {
           <th>Added</th>
         </tr>
       </thead>
-      <tbody>
-        {result && generateTable()}
-      </tbody>
+      <tbody>{result && generateTable()}</tbody>
     </table>
-  )
+  );
 }
 
 export default List;

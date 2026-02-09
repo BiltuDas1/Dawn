@@ -1,36 +1,40 @@
 @use "../include/colors";
-
+@use "../include/utils";
 
 table {
-  border-collapse: collapse; 
+  border-collapse: collapse;
   table-layout: fixed;
   width: 100%;
 
   tr {
     height: 2.5rem;
 
-    td:first-child, th:first-child {
+    td:first-child,
+    th:first-child {
       padding-left: 1rem;
     }
 
-    td:last-child, th:last-child {
+    td:last-child,
+    th:last-child {
       padding-right: 1rem;
     }
   }
 
   thead {
+    @include utils.no-select();
+
     tr {
       background-color: colors.$row-hover;
-      
+
       th {
         font-weight: 400;
         text-align: left;
         color: colors.$text-medium-emphasis;
-  
+
         &:first-child {
           border-radius: 0.5rem 0 0 0.5rem;
         }
-  
+
         &:last-child {
           border-radius: 0 0.5rem 0.5rem 0;
         }
@@ -44,12 +48,12 @@ table {
         padding-top: 0.3rem;
         border-bottom: 1px solid colors.$text-disabled;
         color: colors.$text-high-emphasis;
-  
+
         a {
           text-decoration: none;
           color: inherit;
           font-weight: 600;
-  
+
           &:visited {
             color: colors.$status-paid;
           }

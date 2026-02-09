@@ -1,4 +1,5 @@
 # Dawn
+
 A Job Scrapper that scraps job list from specific career portals and store it in a database
 
 ## Environment Variables
@@ -6,12 +7,12 @@ A Job Scrapper that scraps job list from specific career portals and store it in
 | Name                      | Description                                                             | Required |
 | ------------------------- | ----------------------------------------------------------------------- | -------- |
 | `KEYWORDS`                | Keywords which will be matched with the job titles, seperated by commas | Yes      |
-| `CLOUDFLARE_API_KEY`      | Cloudflare Workers API Key                                              | Yes*     |
-| `CLOUDFLARE_ACCOUNT_ID`   | Cloudflare Workers Account ID                                           | Yes*     |
-| `CLOUDFLARE_DATABASE_ID`  | Cloudflare D1 Database ID                                               | Yes*     |
-| `CLOUDFLARE_KV_NAMESPACE` | Cloudflare KV Database Namespace ID                                     | Yes*     |
+| `CLOUDFLARE_API_KEY`      | Cloudflare Workers API Key                                              | Yes\*    |
+| `CLOUDFLARE_ACCOUNT_ID`   | Cloudflare Workers Account ID                                           | Yes\*    |
+| `CLOUDFLARE_DATABASE_ID`  | Cloudflare D1 Database ID                                               | Yes\*    |
+| `CLOUDFLARE_KV_NAMESPACE` | Cloudflare KV Database Namespace ID                                     | Yes\*    |
 
-> *These are required only on Production environment, not in development environment
+> \*These are required only on Production environment, not in development environment
 
 ## How to build
 

@@ -1,7 +1,6 @@
-import "../../styles/components/tools.scss"
+import "../../styles/components/tools.scss";
 import RefreshIcon from "../icons/refresh";
 import SearchIcon from "../icons/search";
-
 
 function Tools() {
   return (
@@ -15,7 +14,7 @@ function Tools() {
         <input type="text" placeholder="Search"></input>
       </div>
     </div>
-  )
+  );
 }
 
 export default Tools;

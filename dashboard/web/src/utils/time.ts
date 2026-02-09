@@ -11,25 +11,24 @@ export function getTimeZone(date: Date) {
   return "";
 }
 
-
 function secondsToReadable(seconds: number) {
   const units = {
     Day: 60 * 60 * 24,
     Hour: 60 * 60,
-    Minute: 60
+    Minute: 60,
   };
 
   for (const [unit, second] of Object.entries(units)) {
     let result = Math.floor(seconds / second);
     if (result != 0) {
       if (result == 1) {
-        return `${result} ${unit}`
+        return `${result} ${unit}`;
       } else {
-        return `${result} ${unit}s`
+        return `${result} ${unit}s`;
       }
     }
   }
-  return `${seconds} Seconds`
+  return `${seconds} Seconds`;
 }
 
 export function toApproxUnit(date: Date) {

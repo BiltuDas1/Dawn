@@ -1,14 +1,14 @@
-import type { Job } from '../../../api/src/types/job';
+import type { Job } from "../../../api/src/types/job";
 
 interface FailedJobsData {
-  result: false
-  message: string
-};
+  result: false;
+  message: string;
+}
 
 interface SuccessJobsData {
-  result: true,
-  message: string,
-  data: Job[]
+  result: true;
+  message: string;
+  data: Job[];
 }
 
 export type JobsDataResponse = SuccessJobsData | FailedJobsData;

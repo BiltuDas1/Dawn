@@ -1,6 +1,6 @@
 @use "../include/colors";
 @use "../include/fonts";
-
+@use "../include/utils";
 
 nav {
   padding-bottom: 0.5rem;
@@ -11,6 +11,7 @@ nav {
 
   div#title {
     font-size: 1.15rem;
+    @include utils.no-select();
 
     p {
       margin: 0;
@@ -27,27 +28,58 @@ nav {
     }
   }
 
-  div#qrcode {
+  div#buttons {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border: 0.1px solid colors.$text-disabled;
-    border-radius: 0.3rem;
-    box-shadow: 0.5px 1px 1px colors.$text-disabled;
+    flex-direction: row;
+    gap: 0.5rem;
+    @include utils.no-select();
 
-    svg {
-      height: 2rem;
-      width: 2rem;
-      margin: 0 0.3rem;
-      fill: colors.$text-high-emphasis;
-    }
-    
-    &:hover {
-      cursor: pointer;
+    div#github {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: 0.1px solid colors.$text-disabled;
+      border-radius: 0.3rem;
+      box-shadow: 0.5px 1px 1px colors.$text-disabled;
+
+      svg {
+        height: 2rem;
+        width: 2rem;
+        margin: 0 0.3rem;
+        fill: colors.$text-high-emphasis;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:active {
+        box-shadow: -0.5px -0.5px 0.5px colors.$text-disabled;
+      }
     }
 
-    &:active {
-      box-shadow: -0.5px -0.5px 0.5px colors.$text-disabled;
+    div#qrcode {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: 0.1px solid colors.$text-disabled;
+      border-radius: 0.3rem;
+      box-shadow: 0.5px 1px 1px colors.$text-disabled;
+
+      svg {
+        height: 2rem;
+        width: 2rem;
+        margin: 0 0.3rem;
+        fill: colors.$text-high-emphasis;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:active {
+        box-shadow: -0.5px -0.5px 0.5px colors.$text-disabled;
+      }
     }
   }
 }

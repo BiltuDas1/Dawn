@@ -1,11 +1,10 @@
-import { useState } from 'react';
-import { hc } from 'hono/client';
-import type { AppType } from '../../../api/src/server';
-import type { JobsDataResponse } from '../types/jobs';
-
+import { useState } from "react";
+import { hc } from "hono/client";
+import type { AppType } from "../../../api/src/server";
+import type { JobsDataResponse } from "../types/jobs";
 
 export function useJobsList() {
-  const client = hc<AppType>('/');
+  const client = hc<AppType>("/");
   const [result, setResult] = useState<JobsDataResponse | null>(null);
   const [error, setError] = useState<any | null>(null);
 
@@ -13,8 +12,8 @@ export function useJobsList() {
     try {
       const response = await client.api.jobs.$get({
         header: {
-          'X-OTP': otp
-        }
+          "X-OTP": otp,
+        },
       });
       const data = await response.json();
       setResult(data);

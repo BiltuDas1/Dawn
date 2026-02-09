@@ -1,6 +1,5 @@
-import { verify } from 'otplib';
-import base32 from 'hi-base32';
-
+import { verify } from "otplib";
+import base32 from "hi-base32";
 
 export class TOTP {
   #secret: string;
@@ -10,6 +9,6 @@ export class TOTP {
   }
 
   async verifyOTP(otp: string) {
-    return (await verify({ secret: this.#secret, token: otp })).valid
+    return (await verify({ secret: this.#secret, token: otp })).valid;
   }
 }

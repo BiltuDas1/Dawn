@@ -3,16 +3,14 @@
   "name": "dawn",
   "main": "./api/src/server.ts",
   "compatibility_date": "2026-01-27",
-  "compatibility_flags": [
-    "nodejs_compat"
-  ],
+  "compatibility_flags": ["nodejs_compat"],
   "assets": {
     "directory": "./web/dist",
-    "binding": "ASSETS"
+    "binding": "ASSETS",
   },
   "d1_databases": [
     {
-      "binding": "SCRAPPER_DB"
-    }
-  ]
+      "binding": "SCRAPPER_DB",
+    },
+  ],
 }

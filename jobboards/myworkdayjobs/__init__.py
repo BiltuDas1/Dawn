@@ -28,7 +28,11 @@ def myworkdayjobs(browser: Browser, company: str, career_link: str) -> list[JobD
     logger.LOGGER.info(f"[{company}] Service Unavailable")
     return result
 
-  jobs = page.locator('section[data-automation-id="jobResults"]').first.locator('ul[role="list"]').first
+  jobs = (
+    page.locator('section[data-automation-id="jobResults"]')
+    .first.locator('ul[role="list"]')
+    .first
+  )
   jobs.wait_for(state="visible")
   jobs_list = jobs.locator("> li").all()
 
