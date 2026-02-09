@@ -7,7 +7,17 @@ function App() {
   const { fetchJobs, result } = useJobsList();
 
   return (
-    <>{result ? <Dashboard data={result} /> : <Login callback={fetchJobs} />}</>
+    <>
+      {result ? (
+        result.result ? (
+          <Dashboard data={result} />
+        ) : (
+          <Login callback={fetchJobs} response={result} />
+        )
+      ) : (
+        <Login callback={fetchJobs} response={result} />
+      )}
+    </>
   );
 }
 

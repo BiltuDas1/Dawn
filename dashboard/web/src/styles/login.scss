@@ -46,6 +46,10 @@ div#login {
           &.selected {
             border: 2px solid colors.$status-paid;
           }
+
+          &.invalid {
+            border: 2px solid colors.$status-overdue;
+          }
         }
       }
 

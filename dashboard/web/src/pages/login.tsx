@@ -1,13 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../styles/login.scss";
 import LoadingIcon from "../components/icons/loading";
+import type { JobsDataResponse } from "../types/jobs";
 
-function Login({ callback }: { callback: (otp: string) => Promise<void> }) {
+function Login({
+  callback,
+  response,
+}: {
+  callback: (otp: string) => Promise<void>;
+  response: JobsDataResponse | null;
+}) {
   const [lastElement, setLastElement] = useState<HTMLDivElement | null>(null);
   const [loading, setLoading] = useState(false);
 
   function selectInput(box: HTMLDivElement) {
     box.classList.add("selected");
+    box.classList.remove("invalid");
 
     if (lastElement != null && box != lastElement) {
       lastElement.classList.remove("selected");
@@ -60,6 +68,39 @@ function Login({ callback }: { callback: (otp: string) => Promise<void> }) {
 
     callback(totp.toString());
   }
+
+  useEffect(() => {
+    if (response == null) {
+      return;
+    }
+    setLoading(false);
+
+    const totpInput = document.getElementById(
+      "totp-input",
+    ) as HTMLInputElement | null;
+    if (totpInput == null) {
+      return;
+    }
+    totpInput.value = "";
+    totpInput.removeAttribute("readonly");
+
+    const boxes = document
+      .getElementById("box-inputs")
+      ?.getElementsByClassName("box") as HTMLCollectionOf<HTMLDivElement>;
+
+    for (const box of boxes) {
+      box.classList.remove("selected");
+      box.classList.add("invalid");
+      box.innerText = "";
+    }
+
+    const submitBtn = document.getElementById("submitbtn");
+    if (submitBtn == null) {
+      return;
+    }
+
+    submitBtn.removeAttribute("disabled");
+  }, [response]);
 
   return (
     <>
